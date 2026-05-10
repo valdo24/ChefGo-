@@ -11,12 +11,23 @@ body {
     background-size: cover;
 }
 
+/* CONTENEDOR GENERAL */
+.container-nosotros {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* CONTENEDOR SUPERIOR */
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* TITULOS */
 h1 {
     color: azure;
     font-size: 40px;
@@ -25,40 +36,55 @@ h1 {
 p {
     padding-top: 10px;
     padding-bottom: 20px;
+
     font-size: 20px;
+
     color: aliceblue;
 }
 
 .presentacion {
     text-align: center;
+
     margin-bottom: 30px;
+    margin-top: 20px;
 }
 
+/* PERFILES */
 .perfiles {
     display: flex;
+
     gap: 20px;
+
     flex-wrap: wrap;
+
     justify-content: center;
+
     align-items: flex-start;
+
+    min-height: 300px;
 }
 
-/* PERFIL */
+/* CARD PERFIL */
 .perfil {
     width: 180px;
-    
+
+    min-height: 220px;
 
     background: rgb(131, 131, 131);
+
     border-radius: 15px;
+
     padding: 15px;
 
     cursor: pointer;
+
     transition: 0.3s;
 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    align-items: center;
 }
 
 .perfil:hover {
@@ -70,45 +96,45 @@ p {
     height: 100px;
 
     object-fit: cover;
+
     border-radius: 50%;
 
-    display: block;
-    margin: auto;
+    margin-bottom: 10px;
 }
 
 .perfil p {
     text-align: center;
-    font-size: 20px;
-    padding: 10px;
 
-    color: rgb(0, 0, 0);
+    font-size: 20px;
+
+    color: black;
 
     font-family: 'Trebuchet MS',
-                 'Lucida Sans Unicode',
-                 'Lucida Grande',
-                 'Lucida Sans',
-                 Arial,
-                 sans-serif;
+        'Lucida Sans Unicode',
+        'Lucida Grande',
+        'Lucida Sans',
+        Arial,
+        sans-serif;
 }
 
-/* INFO */
+/* INFO OCULTA */
 .info {
     opacity: 0;
 
-    max-height: 0; 
+    max-height: 0;
 
     overflow: hidden;
 
-    transform: translateY(-10px);
+    transform: translateY(-20px);
 
-    transition: all 0.4s ease;
+    transition: 0.5s;
 
     text-align: center;
 
-    margin-top: auto;
+    color: rgb(0, 0, 0);
 }
 
-/* CUANDO HACEN CLICK */
+/* INFO ACTIVA */
 .perfil.active .info {
     opacity: 1;
 
@@ -119,11 +145,11 @@ p {
     padding-top: 10px;
 }
 
-/* BOTON REGRESAR */
+/* BOTON VOLVER */
 .regresar a {
     position: absolute;
 
-    left: 5px;
+    left: -20px;
     top: 15px;
 
     text-decoration: none;
@@ -134,33 +160,132 @@ p {
 
     border-radius: 5px;
 
-    color: black;
+    color: rgb(206, 206, 206);
 
     transition: 1s;
 }
 
 .regresar a:hover {
-    background-color: aliceblue;
+    background-color: rgb(172, 172, 172);
+
+    color: black;
+
+    transform: translateX(30px);
 }
 
 /* PRESENTACION */
 .container-presentacion {
-    margin: 100px;
+    width: 60%;
 
-    background-color: beige;
+    margin-top: 40px;
 
-    padding: 15px;
+    background-color: rgb(196, 193, 193);
 
     border-radius: 10px;
 
-    width: 85%;
-    height: 200px;
+    display: flex;
 
-    align-items: center;
+    justify-content: center;
 
+    overflow: hidden;
 }
 
-.container-presentacion label{
+/* CORTINA */
+.container-presentacion label {
+    display: block;
+
+    width: 100%;
+
+    padding: 25px;
+
     font-size: 23px;
+
     font-family: Arial, Helvetica, sans-serif;
+
+    font-style: italic;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    height: 70px;
+
+    line-height: 35px;
+
+    transition:
+        height 1s ease,
+        filter 0.5s ease,
+        letter-spacing 0.5s ease;
+
+    filter: blur(80px);
+
+    letter-spacing: 100px;
 }
+
+/* ABRIR CORTINA */
+.container-presentacion label.abrir {
+    height: 450px;
+
+    filter: blur(0px);
+
+    letter-spacing: -1px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1300px) {
+
+    .container-presentacion {
+        width: 80%;
+    }
+
+    .container-presentacion label {
+        font-size: 18px;
+    }
+
+    .container-presentacion label.abrir {
+        height: 500px;
+    }
+}
+
+@media (max-width: 810px) {
+
+    .container-presentacion {
+        width: 90%;
+    }
+
+    .container-presentacion label {
+        font-size: 16px;
+
+        padding: 20px;
+    }
+
+    .container-presentacion label.abrir {
+        height: 560px;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .container-presentacion {
+        width: 95%;
+    }
+
+    .container-presentacion label {
+        font-size: 15px;
+    }
+
+    .container-presentacion label.abrir {
+        height: 750px;
+    }
+
+    .regresar a {
+        left: -40px;
+    }
+
+    .regresar a:hover {
+        transform: translateX(20px);
+    }
+}
+
