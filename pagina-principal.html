@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChefGo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div class="container-banner">
+
+        <div class="Logo">
+            <img src="imagenes/ChefGo!! Logo Final.png" alt="">
+            <h1>ChefGo</h1>
+        </div>
+        <div class="busqueda">
+            <input type="search" id="buscador" placeholder="Buscar...">
+        </div>
+
+        <div class="btn-menu">
+            <label for="btn-menu">☰</label>
+        </div>
+
+        <input type="checkbox" id="btn-menu">
+
+        <div class="capa"></div>
+
+        <div class="container-menu">
+            <label for="btn-menu">✖️</label>
+            <div class="cont-menu">
+                <nav>
+                    <a href="sobre nosotros/sobre-nosotros.html">Sobre Nosotros</a>
+                    <a href="#">Cuenta</a>
+                    <a href="#">Instagram</a>
+                </nav>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- MENUS -->
+    <div class="container-menus">
+
+        <div class="menu">
+            <img src="imagenes/secciones/empanadas/empanadas.png">
+            <p>Empanadas</p>
+            <div class="info">Clásicas argentinas. Perfectas para cualquier momento.</div>
+        </div>
+
+        <div class="menu">
+            <img src="imagenes/secciones/guisos/guiso.png">
+            <p>Guiso</p>
+            <div class="info">Plato caliente y abundante. Ideal para días frescos.</div>
+        </div>
+
+        <div class="menu">
+            <img src="imagenes/secciones/pasta/pasta.jpg">
+            <p>Pasta</p>
+            <div class="info">Fideos con salsa o crema. Un clásico.</div>
+        </div>
+
+        <div class="menu">
+            <img src="imagenes/secciones/picadas/picadas.jpg">
+            <p>Picadas</p>
+            <div class="info">Fiambres y quesos. Perfecto para compartir.</div>
+        </div>
+
+        <div class="menu">
+            <img src="imagenes/secciones/pizza/pizzas.jpg">
+            <p>Pizzas</p>
+            <div class="info">Queso derretido y masa crocante.</div>
+        </div>
+
+        <div class="menu">
+            <img src="imagenes/secciones/postres/postres.jfif">
+            <p>Postres</p>
+            <div class="info">Dulces y cremosos. Perfectos para cerrar.</div>
+        </div>
+
+        <div class="menu">
+            <img src="imagenes/secciones/sandwichs/sandwichs.jfif">
+            <p>Sandwich</p>
+            <div class="info">Rápido, práctico y delicioso.</div>
+        </div>
+
+        <div class="menu">
+            <img src="imagenes/secciones/asado/asado.jfif">
+            <p>Asado</p>
+            <div class="info">Carne a la parrilla bien argentina.</div>
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script>
+        const links = [
+            "menus/empanadas/empanadas.html",
+            "menus/guiso/guiso.html",
+            "menus/pastas/pastas.html",
+            "menus/picadas/picadas.html",
+            "menus/pizzas/pizzas.html",
+            "menus/postres/postres.html",
+            "menus/sandwichs/sandwichs.html",
+            "menus/asado/asado.html"
+        ];
+
+        document.querySelectorAll(".menu").forEach((card, index) => {
+
+            card.addEventListener("click", () => {
+
+                if (card.classList.contains("active")) {
+                    window.location.href = links[index];
+                } else {
+                    document.querySelectorAll(".menu").forEach(c => c.classList.remove("active"));
+                    card.classList.add("active");
+                }
+
+            });
+
+        });
+
+
+
+
+        const buscador = document.getElementById("buscador");
+        const menus = document.querySelectorAll(".menu");
+
+
+        buscador.addEventListener("input", () => {
+
+            const texto = buscador.value.toLowerCase();
+
+            menus.forEach(menu => {
+
+                const titulo = menu.querySelector("p").textContent.toLowerCase();
+
+                if (titulo.includes(texto)) {
+                    menu.style.display = "block";
+                } else {
+                    menu.style.display = "none";
+                }
+
+            });
+
+            
+
+
+        });
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quienes Somos</title>
+    <link rel="stylesheet" href="S-N.css">
+</head>
+
+<body>
+    <div class="container-nosotros">
+        <div class="container">
+
+            <div class="regresar">
+                <a href="../pagina-principal.html">Volver</a>
+            </div>
+
+            <div class="presentacion">
+                <h1>Quienes somos</h1>
+                <p>Te presentamos a los desarrolladores</p>
+            </div>
+
+            <div class="perfiles">
+
+                <div class="perfil">
+                    <img src="../sobre nosotros/perfiles/perfil-valen.jfif">
+                    <p>Valen</p>
+                    <div class="info">
+                        Programador FrontEnd y Diseñador.
+                    </div>
+                </div>
+
+                <div class="perfil">
+                    <img src="../sobre nosotros/perfiles/luciano p.gif">
+                    <p>Luciano</p>
+                    <div class="info">
+                        Testing.
+                    </div>
+                </div>
+
+                <div class="perfil">
+                    <img src="../sobre nosotros/perfiles/agustin p.jfif">
+                    <p>Agustin</p>
+                    <div class="info">
+                        Programador BackEnd.
+                    </div>
+                </div>
+
+                <div class="perfil">
+                    <img src="../sobre nosotros/perfiles/nicolas p.jfif">
+                    <p>Nicolas</p>
+                    <div class="info">
+                        Líder y Documentación.
+                    </div>
+                </div>
+
+                <div class="perfil">
+                    <img src="../sobre nosotros/perfiles/dylan p.jfif">
+                    <p>Dylan</p>
+                    <div class="info">
+                        Programador de Base de Datos.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container-presentacion">
+
+            <label>
+                En nuestro equipo trabajamos para crear una aplicación moderna, rápida y fácil de usar para todo tipo de
+                usuarios.
+                Nuestra app está pensada para brindar una experiencia cómoda al momento de buscar recetas y comidas para
+                cualquier ocasión.
+                Contamos con desarrolladores especializados en FrontEnd, BackEnd, Base de Datos, Testing y Diseño.
+                Cada integrante aporta creatividad, organización y dedicación para ofrecer un servicio de calidad.
+                Nos enfocamos en que la navegación sea simple, atractiva y accesible para todas las edades.
+                Además, buscamos mejorar constantemente la aplicación según las necesidades de nuestros usuarios.
+                Nuestro objetivo es que cada persona encuentre inspiración y comodidad al utilizar nuestra plataforma.
+                Somos un equipo comprometido en ofrecer innovación, confianza y una excelente experiencia digital.
+            </label>
+
+
+
+
+        </div>
+    </div>
+
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+
+
+        /* PERFILES */
+        const perfiles = document.querySelectorAll(".perfil");
+
+        perfiles.forEach((card) => {
+
+            card.addEventListener("click", () => {
+
+                perfiles.forEach(c => c.classList.remove("active"));
+
+                card.classList.add("active");
+
+            });
+
+        });
+
+        /* CORTINA */
+        const cortina = document.querySelector(".container-presentacion label");
+
+        cortina.addEventListener("click", () => {
+
+            cortina.classList.toggle("abrir");
+
+        });
+
+
+
+    </script>
+
+</body>
+
+</html>

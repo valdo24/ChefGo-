@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuenta Creada</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular',
+                'Lucida Grande', 'Lucida Sans Unicode',
+                Geneva, Verdana, sans-serif;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            height: 100vh;
+
+            background-color: rgb(237, 243, 235);
+        }
+
+        .container {
+            background-color: rgb(201, 198, 198);
+
+            padding: 30px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+            width: 450px;
+
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 35px;
+            margin-bottom: 20px;
+            color: rgb(56, 56, 56);
+        }
+
+        label {
+            font-size: 18px;
+            color: rgb(70, 70, 70);
+            line-height: 1.5;
+        }
+
+        /* CONTENEDOR DE CUADROS */
+
+        .elegir {
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-top: 40px;
+
+            gap: 20px;
+        }
+
+        /* CUADROS */
+
+        .ir-hover{
+            width: 200px;
+            height: 200px;
+
+            border-radius: 12px;
+
+            display: flex;
+            justify-content: end;
+            align-items: end;
+
+
+        }
+        .regresar-hover {
+
+            width: 200px;
+            height: 200px;
+
+            border-radius: 12px;
+
+            display: flex;
+            justify-content: start;
+            align-items: self-end;
+
+
+            
+        }
+
+        
+
+        /* BOTONES */
+
+        
+
+        .ir-hover button{
+            padding: 10px 20px;
+
+            border: none;
+
+            border-radius: 7px;
+
+            background-color: rgb(150, 150, 150);
+
+            color: black;
+
+            font-size: 15px;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+
+            /* OCULTO */
+
+            opacity: 0;
+
+            transform: translateX(20px);
+
+        }
+
+        .regresar-hover button{
+            padding: 10px 20px;
+
+            border: none;
+
+            border-radius: 7px;
+
+            background-color: rgb(150, 150, 150);
+
+            color: black;
+
+            font-size: 15px;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+
+            /* OCULTO */
+
+            opacity: 0;
+
+            transform: translateX(-20px);
+        }
+
+        button:hover {
+            background-color: rgb(112, 112, 112);
+            color: white;
+        }
+
+        /* MOSTRAR BOTONES */
+
+        .ir-hover:hover button,
+        .regresar-hover:hover button {
+
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1 id="saludo"></h1>
+
+        <label>
+            Sea usted bienvenido a ChefGo,
+            le brindamos una buena experiencia
+            y el mejor servicio para nuestros clientes.
+            Esperamos que te sientas cómodo
+            con nuestra plataforma.
+        </label>
+
+        <div class="elegir">
+
+            <!-- REGRESAR -->
+
+            <div class="regresar-hover">
+
+                <a href="index.html">
+
+                    <button>
+                        Regresar
+                    </button>
+
+                </a>
+
+            </div>
+
+            <!-- INGRESAR -->
+
+            <div class="ir-hover">
+
+                <a href="pagina-principal.html">
+
+                    <button>
+                        Ingresar
+                    </button>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        // obtener nombre guardado
+        const usuario =
+            localStorage.getItem("usuario");
+
+        // mostrar saludo
+        document.getElementById("saludo").innerText =
+            "Bienvenido " + usuario + " ✨";
+
+    </script>
+
+</body>
+
+</html>
