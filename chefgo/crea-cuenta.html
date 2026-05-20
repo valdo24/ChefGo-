@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Cuenta</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eaedf1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: rgb(209, 205, 205);
+            padding: 30px;
+            border-radius: 8px;
+            width: 350px;
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #4ff339;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #32bd25;
+        }
+
+        .error {
+            color: red;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .container-terminos label {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: #2b2b2b;
+            text-align: start;
+            font-size: 15px;
+        }
+
+        .terminos {
+
+            display: flex;
+            padding-top: 10px;
+
+
+        }
+
+        .terminos label {
+            color: #2b2b2b;
+            font-size: 13px;
+            margin-bottom: 0;
+
+
+        }
+
+        #checkbox {
+            width: 20px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <h2>Crea tu cuenta</h2>
+
+        <div class="input-group">
+            <label>Nombre de usuario:</label>
+            <input type="text" id="usuario" placeholder="Crea tu usuario">
+        </div>
+
+        <div class="input-group">
+            <label>Contraseña:</label>
+
+            <!-- maximo 15 -->
+            <input type="password" id="password" maxlength="15" placeholder="Máximo 15 caracteres">
+        </div>
+
+        <div class="input-group">
+            <label>Gmail:</label>
+
+            <!-- type email -->
+            <input type="email" id="gmail" placeholder="Ingresa tu Gmail">
+        </div>
+
+        <div class="container-terminos">
+            <label class="text-terminos-condiciones">
+                Al usar esta app,asumes la
+                responsabilidad por la preparación de las recetas y la verificación
+                de posibles alérgenos alimentarios. Todos los contenidos y
+                diseños son propiedad de la plataforma, quedando prohibida su
+                reproducción o uso comercial sin autorización.
+            </label>
+        </div>
+
+        <div class="terminos">
+            <input type="checkbox" id="checkbox">
+            <label>
+                Acepto términos y condiciones
+            </label>
+        </div>
+
+        <p class="error" id="error"></p>
+
+        <button onclick="guardarUsuario()">
+            Crear Cuenta
+        </button>
+
+    </div>
+
+    <script>
+
+        function guardarUsuario() {
+
+            // INPUTS
+            const usuario =
+                document.getElementById("usuario").value;
+
+            const password =
+                document.getElementById("password").value;
+
+            const gmail =
+                document.getElementById("gmail").value;
+
+            const checkbox =
+                document.getElementById("checkbox").checked;
+
+            const error =
+                document.getElementById("error");
+
+            // limpiar error
+            error.innerText = "";
+
+            // VALIDACIONES
+
+            if (usuario === "" ||
+                password === "" ||
+                gmail === "") {
+
+                error.innerText =
+                    "Completa todos los campos";
+
+                return;
+            }
+
+            // gmail obligatorio con @
+            if (!gmail.includes("@")) {
+
+                error.innerText =
+                    "El Gmail debe tener @";
+
+                return;
+            }
+
+            if (!gmail.includes("gmail.com")) {
+
+                error.innerText =
+                    "El Gmail debe tener gmail.com";
+
+                return;
+            }
+
+            // checkbox
+            if (!checkbox) {
+
+                error.innerText =
+                    "Acepta los términos";
+
+                return;
+            }
+
+            // guardar usuario
+            localStorage.setItem("usuario", usuario);
+
+            // ir a otra pagina
+            window.location.href =
+                "cuenta-creada.html";
+        }
+
+    </script>
+
+</body>
+
+</html>
